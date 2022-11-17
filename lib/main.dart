@@ -8,7 +8,6 @@ import 'package:e_wallet/ui/screens/sign_up_upload_profile_screen.dart';
 import 'package:e_wallet/ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../shared/theme.dart';
 
 void main() {
   runApp(const MyApp());
