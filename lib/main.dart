@@ -1,5 +1,6 @@
 import 'package:e_wallet/ui/screens/home_screen.dart';
 import 'package:e_wallet/ui/screens/onboardingscreen.dart';
+import 'package:e_wallet/ui/screens/profile_screen.dart';
 import 'package:e_wallet/ui/screens/sign_in_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_set_ktp_screen.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         SignUpSetKtpScreen.routeName : (ctx) => const SignUpSetKtpScreen(),
         SignUpSuccessScreen.routeName : (ctx) => const SignUpSuccessScreen(),
         HomeScreen.routeName : (ctx) => const HomeScreen(),
+        ProfileScreen.routeName : (ctx) => const ProfileScreen(),
       },
     );
   }

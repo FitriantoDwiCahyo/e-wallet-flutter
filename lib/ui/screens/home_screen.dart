@@ -1,5 +1,8 @@
+import 'package:e_wallet/ui/screens/profile_screen.dart';
 import 'package:e_wallet/ui/widgets/home_latest_transaction_item.dart';
 import 'package:e_wallet/ui/widgets/home_service_item.dart';
+import 'package:e_wallet/ui/widgets/home_tips_item.dart';
+import 'package:e_wallet/ui/widgets/home_user_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
@@ -72,17 +75,19 @@ class HomeScreen extends StatelessWidget {
           horizontal: 24,
         ),
         children: <Widget>[
-          buildProfile(),
+          buildProfile(context),
           buildWalletCard(),
           buildLevel(),
           buildServices(),
           buildLatestTransactions(),
+          buildSendAgain(),
+          buildFriendlyTips()
         ],
       ),
     );
   }
 
-  Widget buildProfile() {
+  Widget buildProfile(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 40),
       child: Row(
@@ -109,31 +114,36 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            width: 60,
-            height: 60,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/img_profile.png',
+          GestureDetector(
+            onTap: (){
+              Navigator.of(context).pushNamed(ProfileScreen.routeName);
+            },
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/img_profile.png',
+                  ),
                 ),
               ),
-            ),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                width: 16,
-                height: 16,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: whiteColor,
-                ),
-                child: Center(
-                  child: Icon(
-                    Icons.check_circle,
-                    color: greenColor,
-                    size: 14,
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  width: 16,
+                  height: 16,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: whiteColor,
+                  ),
+                  child: Center(
+                    child: Icon(
+                      Icons.check_circle,
+                      color: greenColor,
+                      size: 14,
+                    ),
                   ),
                 ),
               ),
@@ -353,6 +363,102 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildSendAgain() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 25,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Latest Transactions',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: <Widget>[
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend1.png',
+                  username: 'Yuanita',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend2.png',
+                  username: 'Yuanita',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend3.png',
+                  username: 'Yuanita',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend4.png',
+                  username: 'Yuanita',
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildFriendlyTips() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 20,
+        bottom: 50,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Friendly Tips',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Wrap(
+            spacing: 23,
+            runSpacing: 10,
+            children: const [
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips1.png',
+                title: 'Best tips for using a credit card',
+                url: 'https://google.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips2.png',
+                title: 'Best tips for using a credit card',
+                url: 'dsda',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips3.png',
+                title: 'Best tips for using a credit card',
+                url: 'dsda',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips4.png',
+                title: 'Best tips for using a credit card',
+                url: 'dsda',
+              ),
+            ], 
           ),
         ],
       ),
