@@ -1,5 +1,7 @@
+import 'package:e_wallet/shared/theme.dart';
 import 'package:e_wallet/ui/screens/home_screen.dart';
 import 'package:e_wallet/ui/screens/onboardingscreen.dart';
+import 'package:e_wallet/ui/screens/pin_screen.dart';
 import 'package:e_wallet/ui/screens/profile_screen.dart';
 import 'package:e_wallet/ui/screens/sign_in_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_screen.dart';
@@ -8,7 +10,6 @@ import 'package:e_wallet/ui/screens/sign_up_success_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_upload_profile_screen.dart';
 import 'package:e_wallet/ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -33,19 +34,30 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
-
+        scaffoldBackgroundColor: lightBackgroundColor,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          iconTheme: IconThemeData(color: blackColor),
+          backgroundColor: lightBackgroundColor,
+          elevation: 0,
+          titleTextStyle: blackTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: semiBold,
+          ),
+        ),
       ),
       home: const SplashScreen(),
       routes: {
-        OnboardingScreen.routeName : (ctx) => const OnboardingScreen(),
-        SignInScreen.routeName : (ctx) => const SignInScreen(),
-        SignUpScreen.routeName : (ctx) => const SignUpScreen(),
-        SignUpUploadProfileScreen.routeName : (ctx) => const SignUpUploadProfileScreen(),
-        SignUpSetKtpScreen.routeName : (ctx) => const SignUpSetKtpScreen(),
-        SignUpSuccessScreen.routeName : (ctx) => const SignUpSuccessScreen(),
-        HomeScreen.routeName : (ctx) => const HomeScreen(),
-        ProfileScreen.routeName : (ctx) => const ProfileScreen(),
+        OnboardingScreen.routeName: (ctx) => const OnboardingScreen(),
+        SignInScreen.routeName: (ctx) => const SignInScreen(),
+        SignUpScreen.routeName: (ctx) => const SignUpScreen(),
+        SignUpUploadProfileScreen.routeName: (ctx) =>
+            const SignUpUploadProfileScreen(),
+        SignUpSetKtpScreen.routeName: (ctx) => const SignUpSetKtpScreen(),
+        SignUpSuccessScreen.routeName: (ctx) => const SignUpSuccessScreen(),
+        HomeScreen.routeName: (ctx) => const HomeScreen(),
+        ProfileScreen.routeName: (ctx) => const ProfileScreen(),
+        PinScreen.routeName: (ctx) => const PinScreen(),
       },
     );
   }

@@ -1,3 +1,6 @@
+import 'package:e_wallet/ui/screens/pin_screen.dart';
+import 'package:e_wallet/ui/widgets/custom_text_button.dart';
+import 'package:e_wallet/ui/widgets/profile_menu_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
@@ -9,19 +12,10 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackgroundColor,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'My Profile',
-          style: blackTextStyle.copyWith(
-            fontSize: 16,
-            fontWeight: semiBold,
-          ),
         ),
-        centerTitle: true,
-        iconTheme: IconThemeData(color: blackColor),
-        backgroundColor: lightBackgroundColor,
-        elevation: 0,
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
@@ -29,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         children: [
           const SizedBox(
-            height: 40,
+            height: 20,
           ),
           Container(
             padding: const EdgeInsets.symmetric(
@@ -82,9 +76,42 @@ class ProfileScreen extends StatelessWidget {
                     fontWeight: medium,
                   ),
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
+                ProfileMenuItem(
+                    iconUrl: 'assets/ic_edit_profile.png',
+                    title: 'Edit Profile',
+                    onTap: () {
+                      Navigator.of(context).pushNamed(PinScreen.routeName);
+                    }),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_pin.png',
+                  title: 'My Pin',
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_wallet.png',
+                  title: 'Wallet Settings',
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_reward.png',
+                  title: 'My Rewards',
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_help.png',
+                  title: 'Help Center',
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_logout.png',
+                  title: 'Log Out',
+                ),
               ],
             ),
           ),
+          const SizedBox(
+            height: 57,
+          ),
+          CustomTextButton(title: 'Report Problem')
         ],
       ),
     );

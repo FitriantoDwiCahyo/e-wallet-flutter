@@ -35,7 +35,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -107,8 +106,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             CustomFilledButtons(
                                 title: 'Get Started',
                                 onPressed: () {
-                                  Navigator.of(context)
-                                      .pushNamedAndRemoveUntil(SignUpScreen.routeName,(route) => false);
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      SignUpScreen.routeName, (route) => false);
                                 }),
                             const SizedBox(
                               height: 20,
@@ -116,8 +115,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             CustomTextButton(
                               title: 'Sign In',
                               onPressed: () {
-                                Navigator.of(context)
-                                    .pushNamedAndRemoveUntil(SignInScreen.routeName,(route) => false);
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    SignInScreen.routeName, (route) => false);
                               },
                             )
                           ],
