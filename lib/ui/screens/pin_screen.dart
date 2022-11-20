@@ -3,9 +3,37 @@ import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
 
-class PinScreen extends StatelessWidget {
+class PinScreen extends StatefulWidget {
   static const routeName = '/pin-screen';
   const PinScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PinScreen> createState() => _PinScreenState();
+}
+
+class _PinScreenState extends State<PinScreen> {
+  final TextEditingController pinController = TextEditingController(text: '');
+
+  addPin(String number) {
+    if (pinController.text.length < 6) {
+      setState(() {
+        pinController.text = pinController.text + number;
+      });
+    }
+    if (pinController.text == '123456') {
+      Navigator.of(context).pop(true);
+    }
+  }
+
+  deletePin() {
+    if (pinController.text.isNotEmpty) {
+      setState(() {
+        pinController.text =
+            pinController.text.substring(0, pinController.text.length - 1);
+      });
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +60,18 @@ class PinScreen extends StatelessWidget {
               SizedBox(
                 width: 200,
                 child: TextFormField(
+                  controller: pinController,
                   obscureText: true,
                   obscuringCharacter: '*',
                   cursorColor: greyColor,
+                  enabled: false,
                   style: whiteTextStyle.copyWith(
                     fontSize: 36,
                     fontWeight: medium,
                     letterSpacing: 16,
                   ),
                   decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      ),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
+                    disabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: greyColor,
                       ),
@@ -63,39 +88,57 @@ class PinScreen extends StatelessWidget {
                 children: [
                   CustomInputPinButton(
                     title: '1',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('1');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '2',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('2');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '3',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('3');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '4',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('4');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '5',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('5');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '6',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('6');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '7',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('7');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '8',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('8');
+                    },
                   ),
                   CustomInputPinButton(
                     title: '9',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('9');
+                    },
                   ),
                   const SizedBox(
                     height: 60,
@@ -103,10 +146,14 @@ class PinScreen extends StatelessWidget {
                   ),
                   CustomInputPinButton(
                     title: '0',
-                    onTap: () {},
+                    onTap: () {
+                      addPin('0');
+                    },
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      deletePin();
+                    },
                     child: Container(
                       width: 60,
                       height: 60,
@@ -118,7 +165,7 @@ class PinScreen extends StatelessWidget {
                         child: Icon(
                           Icons.arrow_back,
                           color: whiteColor,
-                         ),
+                        ),
                       ),
                     ),
                   ),

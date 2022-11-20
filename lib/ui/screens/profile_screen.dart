@@ -1,4 +1,6 @@
 import 'package:e_wallet/ui/screens/pin_screen.dart';
+import 'package:e_wallet/ui/screens/profile_edit_pin_screen.dart';
+import 'package:e_wallet/ui/screens/profile_edit_screen.dart';
 import 'package:e_wallet/ui/widgets/custom_text_button.dart';
 import 'package:e_wallet/ui/widgets/profile_menu_item.dart';
 import 'package:flutter/material.dart';
@@ -82,13 +84,25 @@ class ProfileScreen extends StatelessWidget {
                 ProfileMenuItem(
                     iconUrl: 'assets/ic_edit_profile.png',
                     title: 'Edit Profile',
-                    onTap: () {
-                      Navigator.of(context).pushNamed(PinScreen.routeName);
+                    onTap: () async {
+                      if (await Navigator.of(context)
+                              .pushNamed(PinScreen.routeName) ==
+                          true) {
+                        Navigator.of(context)
+                            .pushNamed(ProfileEditScreen.routeName);
+                      }
                     }),
                 ProfileMenuItem(
-                  iconUrl: 'assets/ic_pin.png',
-                  title: 'My Pin',
-                ),
+                    iconUrl: 'assets/ic_pin.png',
+                    title: 'My Pin',
+                    onTap: () async {
+                      if (await Navigator.of(context)
+                              .pushNamed(PinScreen.routeName) ==
+                          true) {
+                        Navigator.of(context)
+                            .pushNamed(ProfileEditPinScreen.routeName);
+                      }
+                    }),
                 ProfileMenuItem(
                   iconUrl: 'assets/ic_wallet.png',
                   title: 'Wallet Settings',

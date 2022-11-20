@@ -2,6 +2,9 @@ import 'package:e_wallet/shared/theme.dart';
 import 'package:e_wallet/ui/screens/home_screen.dart';
 import 'package:e_wallet/ui/screens/onboardingscreen.dart';
 import 'package:e_wallet/ui/screens/pin_screen.dart';
+import 'package:e_wallet/ui/screens/profile_edit_pin_screen.dart';
+import 'package:e_wallet/ui/screens/profile_edit_screen.dart';
+import 'package:e_wallet/ui/screens/profile_edit_success_screen.dart';
 import 'package:e_wallet/ui/screens/profile_screen.dart';
 import 'package:e_wallet/ui/screens/sign_in_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_screen.dart';
@@ -58,6 +61,9 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
         ProfileScreen.routeName: (ctx) => const ProfileScreen(),
         PinScreen.routeName: (ctx) => const PinScreen(),
+        ProfileEditScreen.routeName: (ctx) => const ProfileEditScreen(),
+        ProfileEditPinScreen.routeName: (ctx) => const ProfileEditPinScreen(),
+        ProfileEditSuccessScreen.routeName: (ctx) => const ProfileEditSuccessScreen(),
       },
     );
   }
