@@ -12,6 +12,9 @@ import 'package:e_wallet/ui/screens/sign_up_set_ktp_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_success_screen.dart';
 import 'package:e_wallet/ui/screens/sign_up_upload_profile_screen.dart';
 import 'package:e_wallet/ui/screens/splash_screen.dart';
+import 'package:e_wallet/ui/screens/topup_amount_screen.dart';
+import 'package:e_wallet/ui/screens/topup_screen.dart';
+import 'package:e_wallet/ui/screens/topup_success_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -64,6 +67,9 @@ class MyApp extends StatelessWidget {
         ProfileEditScreen.routeName: (ctx) => const ProfileEditScreen(),
         ProfileEditPinScreen.routeName: (ctx) => const ProfileEditPinScreen(),
         ProfileEditSuccessScreen.routeName: (ctx) => const ProfileEditSuccessScreen(),
+        TopupScreen.routeName: (ctx) => const TopupScreen(),
+        TopupAmountScreen.routeName: (ctx) => const TopupAmountScreen(),
+        TopupSuccessScreen.routeName: (ctx) => const TopupSuccessScreen(),
       },
     );
   }

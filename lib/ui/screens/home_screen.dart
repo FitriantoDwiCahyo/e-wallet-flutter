@@ -1,4 +1,5 @@
 import 'package:e_wallet/ui/screens/profile_screen.dart';
+import 'package:e_wallet/ui/screens/topup_screen.dart';
 import 'package:e_wallet/ui/widgets/home_latest_transaction_item.dart';
 import 'package:e_wallet/ui/widgets/home_service_item.dart';
 import 'package:e_wallet/ui/widgets/home_tips_item.dart';
@@ -77,7 +78,7 @@ class HomeScreen extends StatelessWidget {
           buildProfile(context),
           buildWalletCard(),
           buildLevel(),
-          buildServices(),
+          buildServices(context),
           buildLatestTransactions(),
           buildSendAgain(),
           buildFriendlyTips()
@@ -114,7 +115,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.of(context).pushNamed(ProfileScreen.routeName);
             },
             child: Container(
@@ -257,7 +258,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget buildServices() {
+  Widget buildServices(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
         top: 20,
@@ -275,11 +276,13 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 14),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const <Widget>[
+            children:  <Widget>[
               HomeServiceItem(
-                iconUrl: 'assets/ic_topup.png',
-                title: 'Top Up',
-              ),
+                  iconUrl: 'assets/ic_topup.png',
+                  title: 'Top Up',
+                  onTap: () {
+                    Navigator.of(context).pushNamed(TopupScreen.routeName);
+                  }),
               HomeServiceItem(
                 iconUrl: 'assets/ic_send.png',
                 title: 'Send',
@@ -457,7 +460,7 @@ class HomeScreen extends StatelessWidget {
                 title: 'Best tips for using a credit card',
                 url: 'dsda',
               ),
-            ], 
+            ],
           ),
         ],
       ),
