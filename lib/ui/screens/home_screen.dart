@@ -1,5 +1,6 @@
 import 'package:e_wallet/ui/screens/profile_screen.dart';
 import 'package:e_wallet/ui/screens/topup_screen.dart';
+import 'package:e_wallet/ui/screens/transfer_screen.dart';
 import 'package:e_wallet/ui/widgets/home_latest_transaction_item.dart';
 import 'package:e_wallet/ui/widgets/home_service_item.dart';
 import 'package:e_wallet/ui/widgets/home_tips_item.dart';
@@ -276,7 +277,7 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 14),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children:  <Widget>[
+            children: <Widget>[
               HomeServiceItem(
                   iconUrl: 'assets/ic_topup.png',
                   title: 'Top Up',
@@ -284,9 +285,11 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).pushNamed(TopupScreen.routeName);
                   }),
               HomeServiceItem(
-                iconUrl: 'assets/ic_send.png',
-                title: 'Send',
-              ),
+                  iconUrl: 'assets/ic_send.png',
+                  title: 'Send',
+                  onTap: () {
+                    Navigator.of(context).pushNamed(TransferScreen.routeName);
+                  }),
               HomeServiceItem(
                 iconUrl: 'assets/ic_withdraw.png',
                 title: 'Withdraw',

@@ -15,6 +15,9 @@ import 'package:e_wallet/ui/screens/splash_screen.dart';
 import 'package:e_wallet/ui/screens/topup_amount_screen.dart';
 import 'package:e_wallet/ui/screens/topup_screen.dart';
 import 'package:e_wallet/ui/screens/topup_success_screen.dart';
+import 'package:e_wallet/ui/screens/transfer_amount_screen.dart';
+import 'package:e_wallet/ui/screens/transfer_screen.dart';
+import 'package:e_wallet/ui/screens/transfer_success_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -70,6 +73,9 @@ class MyApp extends StatelessWidget {
         TopupScreen.routeName: (ctx) => const TopupScreen(),
         TopupAmountScreen.routeName: (ctx) => const TopupAmountScreen(),
         TopupSuccessScreen.routeName: (ctx) => const TopupSuccessScreen(),
+        TransferScreen.routeName: (ctx) => const TransferScreen(),
+        TransferAmountScreen.routeName: (ctx) => const TransferAmountScreen(),
+        TransferSuccessScreen.routeName: (ctx) => const TransferSuccessScreen(),
       },
     );
   }
